@@ -2,18 +2,25 @@
   "name": "react-basics",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cxgslegend.github.io/",
+  "homepage": "https://cxgslegend.github.io/react-basics",
   "dependencies": {
+    "materialize-css": "^0.99.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "gh-pages": "^1.0.0",
+    "node-sass-chokidar": "0.0.3",
     "react-scripts": "1.0.7"
   },
   "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
